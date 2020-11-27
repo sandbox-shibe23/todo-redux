@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { counterSlice } from './feature/Counter';
+import {RootReducer} from "./RootReducer";
 
 export const store = configureStore({
-    reducer: counterSlice.reducer,
+    reducer: RootReducer,
 });
 
 // Can still subscribe to the store
