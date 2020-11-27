@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { counterSlice } from './feature/Counter';
 
 export const store = configureStore({
-  reducer: counterSlice.reducer,
+    reducer: counterSlice.reducer,
 });
 
 // Can still subscribe to the store
