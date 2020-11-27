@@ -15,7 +15,7 @@ export function CounterContainer() {
 
     return (
         <div>
-            <div>Count:  </div>
+            <div>Count: </div>
             <button onClick={increment}>+</button>
             <button onClick={decrement}>-</button>
         </div>
