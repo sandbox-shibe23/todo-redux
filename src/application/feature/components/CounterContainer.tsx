@@ -1,9 +1,11 @@
 import { useDispatch } from 'react-redux';
 import React from 'react';
-import { applicationIncrement, applicationDecrement } from './CounterActions';
+import { applicationIncrement, applicationDecrement } from '../CounterActions';
+import { useCounterSelector } from '../CounterReducers';
 
 export function CounterContainer() {
     const dispatch = useDispatch();
+    const { value } = useCounterSelector((state) => state.counter);
 
     const increment = () => {
         dispatch(applicationIncrement());
@@ -15,7 +17,7 @@ export function CounterContainer() {
 
     return (
         <div>
-            <div>Count: </div>
+            <div>Count: {value}</div>
             <button onClick={increment}>+</button>
             <button onClick={decrement}>-</button>
         </div>
