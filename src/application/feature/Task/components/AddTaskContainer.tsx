@@ -7,9 +7,9 @@ export function AddTaskContainer() {
     const ref = React.useRef<HTMLInputElement>(null);
 
     const handleClick = () => {
-        if(ref.current !== null) {
+        if (ref.current !== null) {
             dispatch(addTask(ref.current.value));
-            ref.current.value = ''
+            ref.current.value = '';
         }
     };
 

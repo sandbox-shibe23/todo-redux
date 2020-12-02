@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { CounterContainer } from './application/feature/Counter/components/CounterContainer';
 import { AddTaskContainer } from './application/feature/Task/components/AddTaskContainer';
-import {TaskListContainer} from "./application/feature/Task/components/TaskListContainer";
+import { TaskListContainer } from './application/feature/Task/components/TaskListContainer';
 
 function App() {
     return (
