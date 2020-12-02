@@ -2,7 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { CounterContainer } from './application/feature/Counter/components/CounterContainer';
-import { TaskContainer } from './application/feature/Task/components/TaskContainer';
+import { AddTaskContainer } from './application/feature/Task/components/AddTaskContainer';
+import {TaskListContainer} from "./application/feature/Task/components/TaskListContainer";
 
 function App() {
     return (
@@ -13,7 +14,8 @@ function App() {
                     Edit <code>src/App.tsx</code> and save to reload.
                 </p>
                 <CounterContainer />
-                <TaskContainer />
+                <AddTaskContainer />
+                <TaskListContainer />
             </header>
         </div>
     );
