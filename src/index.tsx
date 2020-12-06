@@ -6,8 +6,6 @@ import reportWebVitals from './reportWebVitals';
 import { store } from './application/AppicationStore';
 import { Provider } from 'react-redux';
 
-// TODO: hooksを使ってReduxをReactに接続する
-
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>

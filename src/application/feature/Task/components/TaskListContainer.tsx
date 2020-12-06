@@ -2,26 +2,26 @@ import React from 'react';
 import { useTypedSelector } from '../../../AppicationStore';
 import { showEditInput } from '../../../actions/TaskActions';
 import { useDispatch } from 'react-redux';
+import {Task, taskSelector, taskSlice} from "../TaskSlices";
+
+const {taskEdited} = taskSlice.actions
 
 export function TaskListContainer() {
-    // ts-expect-error
-    const tasks = useTypedSelector((state) => state.tasks);
-    const notDoneTasks = tasks.filter((task) => task.status === 'ready');
+    const tasks = useTypedSelector(state => state.tasks)
+    const allTasks = taskSelector.selectAll(tasks)
     const dispatch = useDispatch();
+    const handleClick = () => {
 
-    const handleClick = (taskID: number) => {
-        dispatch(showEditInput(taskID));
     };
-
     return (
         <div>
-            {notDoneTasks.map((task) => {
+            {allTasks.map((task) => {
                 return (
-                    <div key={task.id}>
+                    <div key={task.taskID}>
                         <span>{task.text}</span> :
                         <button
                             type="button"
-                            onClick={() => handleClick(task.id)}
+                            onClick={() => handleClick()}
                         >
                             {task.status}
                         </button>

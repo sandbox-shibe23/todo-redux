@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import { CounterReducer } from './feature/Counter/CounterReducers';
-import { TaskReducer } from './feature/Task/TaskReducers';
+import {taskSlice} from "./feature/Task/TaskSlices";
 
 export const RootReducer = combineReducers({
     counter: CounterReducer,
-    tasks: TaskReducer,
+    tasks: taskSlice.reducer,
 });
