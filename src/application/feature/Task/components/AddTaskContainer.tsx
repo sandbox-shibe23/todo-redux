@@ -13,7 +13,7 @@ export function AddTaskContainer() {
     const taskIDs = taskSelector.selectIds(tasks);
 
     const handleClick = () => {
-        if (ref.current !== null) {
+        if (ref.current !== null && ref.current.value) {
             dispatch(
                 taskAdded({
                     taskID: taskIDs.length,
