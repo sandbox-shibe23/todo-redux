@@ -16,6 +16,7 @@ export const taskSlice = createSlice({
     reducers: {
         taskAdded: taskAdapter.addOne,
         taskEdited: taskAdapter.updateOne,
+        taskDeleted: taskAdapter.removeOne,
     }
 })
 

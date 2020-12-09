@@ -3,7 +3,7 @@ import { useTypedSelector } from '../../../AppicationStore';
 import { useDispatch } from 'react-redux';
 import { Task, taskSelector, taskSlice } from '../TaskSlices';
 
-const { taskEdited } = taskSlice.actions;
+const { taskEdited, taskDeleted } = taskSlice.actions;
 
 export function TaskListContainer() {
     const tasks = useTypedSelector((state) => state.tasks);
@@ -26,6 +26,11 @@ export function TaskListContainer() {
         }
     };
 
+    const handleDeleteClick = (taskID: number) => {
+            dispatch(
+                taskDeleted(taskID),
+            );
+    };
     return (
         <div>
             {allTasks.map((task) => {
@@ -44,6 +49,10 @@ export function TaskListContainer() {
                             task={task}
                             editTaskID={editTaskID}
                             handleClick={handleClick}
+                        />
+                        <DeleteButton
+                            task={task}
+                            handleDeleteClick={handleDeleteClick}
                         />
                     </div>
                 );
@@ -64,6 +73,22 @@ function EditButton(props: EditButtonProps) {
         <>
             <button type="button" onClick={() => handleClick(task)}>
                 {editTaskID === task.taskID ? '決定' : '編集'}
+            </button>
+        </>
+    );
+}
+
+interface DeleteButtonProps {
+    task: Task;
+    handleDeleteClick: (taskID: number) => void;
+}
+
+function DeleteButton(props: DeleteButtonProps) {
+    const { task, handleDeleteClick } = props;
+    return (
+        <>
+            <button type="button" onClick={() => handleDeleteClick(task.taskID)}>
+               削除
             </button>
         </>
     );
