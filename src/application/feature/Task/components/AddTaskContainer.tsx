@@ -16,7 +16,7 @@ export function AddTaskContainer() {
         if (ref.current !== null && ref.current.value) {
             dispatch(
                 taskAdded({
-                    taskID: taskIDs.length,
+                    taskID: Math.floor(Math.random()*10000000),
                     text: ref.current.value,
                     status: 'ready',
                     isEditable: false,
