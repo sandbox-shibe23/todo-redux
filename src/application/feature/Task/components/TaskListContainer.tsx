@@ -27,9 +27,7 @@ export function TaskListContainer() {
     };
 
     const handleDeleteClick = (taskID: number) => {
-            dispatch(
-                taskDeleted(taskID),
-            );
+        dispatch(taskDeleted(taskID));
     };
     return (
         <div>
@@ -87,8 +85,11 @@ function DeleteButton(props: DeleteButtonProps) {
     const { task, handleDeleteClick } = props;
     return (
         <>
-            <button type="button" onClick={() => handleDeleteClick(task.taskID)}>
-               削除
+            <button
+                type="button"
+                onClick={() => handleDeleteClick(task.taskID)}
+            >
+                削除
             </button>
         </>
     );
