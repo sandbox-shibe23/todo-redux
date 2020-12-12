@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { AddTaskContainer } from './application/feature/Task/components/AddTaskContainer';
 import { TaskListContainer } from './application/feature/Task/components/TaskListContainer';
@@ -7,14 +6,8 @@ import { TaskListContainer } from './application/feature/Task/components/TaskLis
 function App() {
     return (
         <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
-                </p>
-                <AddTaskContainer />
-                <TaskListContainer />
-            </header>
+            <AddTaskContainer />
+            <TaskListContainer />
         </div>
     );
 }
