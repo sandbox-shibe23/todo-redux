@@ -5,7 +5,7 @@ import { TaskListContainer } from './application/feature/Task/components/TaskLis
 
 function App() {
     return (
-        <div className="App">
+        <div className="app">
             <AddTaskContainer />
             <TaskListContainer />
         </div>

@@ -30,28 +30,32 @@ export function TaskListContainer() {
         dispatch(taskDeleted(taskID));
     };
     return (
-        <div>
+        <div className="task-list">
             {allTasks.map((task) => {
                 return (
-                    <div key={task.taskID}>
-                        {editTaskID === task.taskID ? (
-                            <input
-                                type="text"
-                                ref={ref}
-                                defaultValue={task.text}
+                    <div key={task.taskID} className="task-list__item">
+                        <div className="task-list__item__text">
+                            {editTaskID === task.taskID ? (
+                                <input
+                                    type="text"
+                                    ref={ref}
+                                    defaultValue={task.text}
+                                />
+                            ) : (
+                                <span>{task.text}</span>
+                            )}
+                        </div>
+                        <div className="task-list__item__actions">
+                            <EditButton
+                                task={task}
+                                editTaskID={editTaskID}
+                                handleClick={handleClick}
                             />
-                        ) : (
-                            <span>{task.text}</span>
-                        )}
-                        <EditButton
-                            task={task}
-                            editTaskID={editTaskID}
-                            handleClick={handleClick}
-                        />
-                        <DeleteButton
-                            task={task}
-                            handleDeleteClick={handleDeleteClick}
-                        />
+                            <DeleteButton
+                                task={task}
+                                handleDeleteClick={handleDeleteClick}
+                            />
+                        </div>
                     </div>
                 );
             })}

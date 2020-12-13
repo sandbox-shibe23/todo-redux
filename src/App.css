@@ -1,5 +1,29 @@
-.App {
-  text-align: center;
+.app {
+    text-align: center;
+    padding: 1em 0;
+    word-break: break-all;
 }
 
+.task-list{
+    padding: 1em 0;
+    margin: 0 auto;
+    text-align: left;
+    max-width:980px;
+}
 
+.task-list__item{
+    display: flex;
+    padding: 0 2em;
+    margin-bottom: 1em;
+}
+
+.task-list__item__text{
+    padding-right: 1em;
+    width: 80%;
+}
+
+.task-list__item__actions{
+    padding-right: 1em;
+    width: 20%;
+    min-width: 90px;
+}
