@@ -6,7 +6,7 @@ export type ApplicationState = ReturnType<typeof RootReducer>;
 export const useTypedSelector: TypedUseSelectorHook<ApplicationState> = useSelector;
 
 export const store = configureStore({
-    reducer: RootReducer,
+  reducer: RootReducer,
 });
 
 // Can still subscribe to the store
