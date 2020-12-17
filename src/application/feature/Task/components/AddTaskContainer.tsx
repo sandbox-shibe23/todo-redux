@@ -4,7 +4,7 @@ import { taskSlice } from '../TaskSlices';
 
 const { taskAdded } = taskSlice.actions;
 
-export function AddTaskContainer() {
+export function AddTaskContainer():JSX.Element {
   const dispatch = useDispatch();
   const ref = React.useRef<HTMLInputElement>(null);
 
