@@ -4,7 +4,7 @@ import { taskSlice } from '../TaskSlices';
 
 const { taskAdded } = taskSlice.actions;
 
-export function AddTaskContainer():JSX.Element {
+export function AddTaskContainer(): JSX.Element {
   const dispatch = useDispatch();
   const ref = React.useRef<HTMLInputElement>(null);
 
@@ -24,7 +24,9 @@ export function AddTaskContainer():JSX.Element {
 
   return (
     <div>
-      <input type="text" ref={ref} />
+      <label>
+        New Task: <input type="text" ref={ref} />
+      </label>
       <button type="button" onClick={handleClick}>
         Add
       </button>
