@@ -25,7 +25,7 @@ export function AddTaskContainer(): JSX.Element {
   return (
     <div>
       <label>
-        New Task: <input type="text" ref={ref} />
+        New Task: <input name="newTask" type="text" ref={ref} />
       </label>
       <button type="button" onClick={handleClick}>
         Add
