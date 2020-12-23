@@ -9,7 +9,7 @@ test('renders add task label.', async () => {
   expect(text).toBeInTheDocument();
 });
 
-test('fire click event', async () => {
+test('fire change event', async () => {
   const { getByLabelText } = render(<AddTaskContainer />);
   fireEvent.change(getByLabelText(/New Task/i), {
     target: { value: 'This is test.' },
