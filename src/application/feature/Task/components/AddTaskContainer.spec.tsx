@@ -21,7 +21,7 @@ test('fire change event.', async () => {
 });
 
 test('Build AddTaskPayload correctly.', async () => {
-  const payload = buildAddTaskPayload(1, 'text')
+  const payload = buildAddTaskPayload(1, 'text');
   expect(payload).toStrictEqual({
     taskID: 1,
     text: 'text',
