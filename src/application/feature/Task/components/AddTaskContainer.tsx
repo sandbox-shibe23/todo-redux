@@ -1,8 +1,18 @@
 import { useDispatch } from 'react-redux';
 import React from 'react';
-import { taskSlice } from '../TaskSlices';
+import {Task, taskSlice} from '../TaskSlices';
 
 const { taskAdded } = taskSlice.actions;
+
+// テストのため公開
+export function buildAddTaskPayload(id:number, text:string): Task{
+  return {
+    taskID: id,
+    text: text,
+    status: 'ready',
+    isEditable: false,
+  }
+}
 
 export function AddTaskContainer(): JSX.Element {
   const dispatch = useDispatch();
@@ -11,12 +21,7 @@ export function AddTaskContainer(): JSX.Element {
   const handleClick = () => {
     if (ref.current !== null && ref.current.value) {
       dispatch(
-        taskAdded({
-          taskID: Math.floor(Math.random() * 10000000),
-          text: ref.current.value,
-          status: 'ready',
-          isEditable: false,
-        }),
+        taskAdded(buildAddTaskPayload(Math.floor(Math.random() * 10000000), ref.current.value)),
       );
       ref.current.value = '';
     }
