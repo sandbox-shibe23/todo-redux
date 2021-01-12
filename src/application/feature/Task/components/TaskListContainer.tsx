@@ -33,25 +33,47 @@ export function TaskListContainer() {
     <div className="task-list">
       {allTasks.map((task) => {
         return (
-          <div key={task.taskID} className="task-list__item">
-            <div className="task-list__item__text">
-              {editTaskID === task.taskID ? (
-                <input type="text" ref={ref} defaultValue={task.text} />
-              ) : (
-                <span>{task.text}</span>
-              )}
-            </div>
-            <div className="task-list__item__actions">
-              <EditButton
-                task={task}
-                editTaskID={editTaskID}
-                handleClick={handleClick}
-              />
-              <DeleteButton task={task} handleDeleteClick={handleDeleteClick} />
-            </div>
-          </div>
+          <TaskItem
+            task={task}
+            editTaskID={editTaskID}
+            handleClick={handleClick}
+            handleDeleteClick={handleDeleteClick}
+            inputRef={ref}
+          />
         );
       })}
+    </div>
+  );
+}
+
+interface TaskItemProps {
+  task: Task;
+  editTaskID: number | null;
+  handleClick: (task: Task) => void;
+  handleDeleteClick: (taskID: number) => void;
+  inputRef: React.RefObject<HTMLInputElement>;
+}
+
+function TaskItem(props: TaskItemProps) {
+  const { task, editTaskID, handleClick, handleDeleteClick, inputRef } = props;
+
+  return (
+    <div key={task.taskID} className="task-list__item">
+      <div className="task-list__item__text">
+        {editTaskID === task.taskID ? (
+          <input type="text" ref={inputRef} defaultValue={task.text} />
+        ) : (
+          <span>{task.text}</span>
+        )}
+      </div>
+      <div className="task-list__item__actions">
+        <EditButton
+          task={task}
+          editTaskID={editTaskID}
+          handleClick={handleClick}
+        />
+        <DeleteButton task={task} handleDeleteClick={handleDeleteClick} />
+      </div>
     </div>
   );
 }
