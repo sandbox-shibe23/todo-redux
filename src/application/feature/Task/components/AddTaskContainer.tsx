@@ -14,7 +14,7 @@ export function buildAddTaskPayload(id: number, text: string): Task {
   };
 }
 
-export function AddTaskContainer(): JSX.Element {
+export function AddTaskContainer(): React.ReactElement {
   const dispatch = useDispatch();
   const ref = React.useRef<HTMLInputElement>(null);
 
@@ -32,10 +32,21 @@ export function AddTaskContainer(): JSX.Element {
     }
   };
 
+  return <AddTask handleClick={handleClick} inputRef={ref} />;
+}
+
+// テストのため公開
+interface AddTaskProps {
+  handleClick: () => void;
+  inputRef: React.RefObject<HTMLInputElement>
+}
+
+export function AddTask(props: AddTaskProps): React.ReactElement {
+  const { handleClick, inputRef } = props;
   return (
     <div>
       <label>
-        New Task: <input name="newTask" type="text" ref={ref} />
+        New Task: <input name="newTask" type="text" ref={inputRef} />
       </label>
       <button type="button" onClick={handleClick}>
         Add
