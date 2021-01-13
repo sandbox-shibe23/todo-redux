@@ -34,6 +34,7 @@ export function TaskListContainer() {
       {allTasks.map((task) => {
         return (
           <TaskItem
+            key={task.taskID}
             task={task}
             editTaskID={editTaskID}
             handleClick={handleClick}
@@ -58,7 +59,7 @@ function TaskItem(props: TaskItemProps) {
   const { task, editTaskID, handleClick, handleDeleteClick, inputRef } = props;
 
   return (
-    <div key={task.taskID} className="task-list__item">
+    <div className="task-list__item">
       <div className="task-list__item__text">
         {editTaskID === task.taskID ? (
           <input type="text" ref={inputRef} defaultValue={task.text} />
